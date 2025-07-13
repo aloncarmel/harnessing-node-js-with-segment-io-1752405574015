@@ -1,0 +1,36 @@
+id: track_events_segment
+learningObjectives:
+  - Understand how to track events in Node.js using Segment.io.
+hints:
+  - Details are available in the [tracking
+    guide](https://segment.com/docs/connections/sources/catalog/libraries/server/node/#track).
+  - Understand more with this [Node.js tutorial](https://nodejs.org/en/docs/)
+    guide.
+startFlow:
+  do:
+    - actionId: bot_message
+      params:
+        person: lucca
+        messages:
+          - text: The crux of Segment.io is event tracking. With the library installed, you
+              can track user interactions.
+          - text: For server-side events, use the `analytics.track()` method. Specify the
+              `userId` and event name first.
+          - text: "Example: `analytics.track({ userId: '12345', event: 'Product Viewed',
+              properties: { productName: 'Awesome Gadget'} });`."
+          - text: This records the event to Segment.io, which processes and routes it to
+              integrations you configure.
+          - text: Great job! Let's advance to working with user data more intricately.
+    - actionId: ready_message
+      params:
+        person: lucca
+trigger:
+  type: user_ready_response
+  flowNode:
+    do:
+      - actionId: bot_message
+        params:
+          person: lucca
+          messages:
+            - text: Finished processing this setup? Click 'Continue' for more.
+      - actionId: finish_step
