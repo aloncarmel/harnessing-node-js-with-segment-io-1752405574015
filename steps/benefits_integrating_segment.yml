@@ -1,0 +1,35 @@
+id: benefits_integrating_segment
+learningObjectives:
+  - Understand the benefits of using Segment.io with Node.js.
+hints:
+  - Dive into cases in this [use case guide](https://segment.com/customers/).
+  - Learn how others benefit through this [Segment
+    page](https://segment.com/customers/).
+startFlow:
+  do:
+    - actionId: bot_message
+      params:
+        person: lucca
+        messages:
+          - text: Data is central to strategy, and Segment.io makes it easy to manage and
+              activate.
+          - text: With seamless Node.js integration, you receive immediate analytics, assist
+              faster decision-making, and enhance user engagement.
+          - text: This combination supports a clean, scalable architecture helping you focus
+              on your app's core logic, rather than data chaos.
+          - text: In short, with Segment.io, your Node.js project becomes a powerhouse of
+              insightful data aligned with business objectives.
+          - text: Remember, quality data leads to better decisions!
+    - actionId: ready_message
+      params:
+        person: lucca
+trigger:
+  type: user_ready_response
+  flowNode:
+    do:
+      - actionId: bot_message
+        params:
+          person: lucca
+          messages:
+            - text: We've reached the final step! Whenever you're ready, we can wrap this up.
+      - actionId: finish_step
