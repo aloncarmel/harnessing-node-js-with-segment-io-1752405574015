@@ -1,0 +1,36 @@
+id: identify_user_segment
+learningObjectives:
+  - Learn how to identify users in Segment.io within Node.js.
+hints:
+  - "[Check how to
+    identify](https://segment.com/docs/connections/sources/catalog/libraries/se\
+    rver/node/#identify) users with more detail."
+  - Explore how traits influence data with this
+    [guide](https://segment.com/docs/connections/spec/identify/).
+startFlow:
+  do:
+    - actionId: bot_message
+      params:
+        person: lucca
+        messages:
+          - text: Identifying users is key to building a detailed data profile.
+          - text: Use the `analytics.identify()` method by specifying a `userId` and any
+              user properties.
+          - text: "Example: `analytics.identify({ userId: '12345', traits: { firstName:
+              'Jane', email: 'jane.doe@example.com' } });`."
+          - text: Done! Now you've linked this session with user details for richer
+              insights.
+          - text: Ready for some nuanced discussions about integration and analytics?
+    - actionId: ready_message
+      params:
+        person: lucca
+trigger:
+  type: user_ready_response
+  flowNode:
+    do:
+      - actionId: bot_message
+        params:
+          person: lucca
+          messages:
+            - text: Ready to refine your user tracking? Click 'Continue'.
+      - actionId: finish_step
