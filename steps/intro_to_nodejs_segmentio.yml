@@ -1,0 +1,35 @@
+id: intro_to_nodejs_segmentio
+learningObjectives:
+  - Understand the significance of combining Node.js and Segment.io.
+hints:
+  - Check out Segment.io's [official documentation](https://segment.com/docs/)
+    for more context.
+  - Learn about Node.js [here](https://nodejs.org/en/about/).
+startFlow:
+  do:
+    - actionId: bot_message
+      params:
+        person: lucca
+        messages:
+          - text: Welcome! Integrating Segment.io with Node.js lets you handle data tracking
+              seamlessly. This powerful combo allows you to gather and utilize
+              data from different sources.
+          - text: Node.js, a JavaScript runtime, and Segment.io, a customer data platform,
+              together streamline data handling processes.
+          - text: With Segment.io in a Node.js app, you can manage analytics without bogging
+              down your server with unrelated SDKs.
+          - text: Jump into the world of real-time data tracking. When you're ready, let's
+              dive deeper into the setup!
+    - actionId: ready_message
+      params:
+        person: lucca
+trigger:
+  type: user_ready_response
+  flowNode:
+    do:
+      - actionId: bot_message
+        params:
+          person: lucca
+          messages:
+            - text: /
+      - actionId: finish_step
