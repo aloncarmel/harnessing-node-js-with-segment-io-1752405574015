@@ -1,0 +1,38 @@
+id: setup_segment_io
+learningObjectives:
+  - Learn how to install Segment.io on a Node.js project.
+hints:
+  - Refer to this [installation
+    guide](https://segment.com/docs/connections/sources/catalog/libraries/server/node/)
+    for a step-by-step process.
+  - Need help with npm? Check out [Node.js package manager
+    docs](https://docs.npmjs.com/).
+startFlow:
+  do:
+    - actionId: bot_message
+      params:
+        person: lucca
+        messages:
+          - text: Let's get Segment.io set up in your Node.js project. First, ensure you
+              have Node.js installed on your machine.
+          - text: Then, execute `npm install --save @segment/analytics-node` to add
+              Segment's Node library to your project.
+          - text: "Once installed, require it in your code: `const Analytics =
+              require('@segment/analytics-node');`."
+          - text: "Initialize it with your write key: `const analytics = new
+              Analytics('YOUR_WRITE_KEY');`."
+          - text: Segment.io is now ready to start tracking in your Node.js app. Let's
+              proceed to crafting some events.
+    - actionId: ready_message
+      params:
+        person: lucca
+trigger:
+  type: user_ready_response
+  flowNode:
+    do:
+      - actionId: bot_message
+        params:
+          person: lucca
+          messages:
+            - text: Click 'Continue' when you've assimilated this step.
+      - actionId: finish_step
