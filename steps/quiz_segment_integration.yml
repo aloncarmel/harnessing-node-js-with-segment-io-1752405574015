@@ -1,0 +1,62 @@
+id: quiz_segment_integration
+learningObjectives:
+  - Identify the first step in using Segment.io in Node.js.
+hints:
+  - Consider what makes everything else possible when starting.
+  - Think about initial setup processes.
+startFlow:
+  do:
+    - actionId: bot_message
+      params:
+        person: lucca
+        messages:
+          - text: What's the crucial first step in integrating Segment.io into a Node.js
+              project?
+    - actionId: quiz_message
+      name: quiz
+      params:
+        person: lucca
+        options:
+          - Create a Node.js server.
+          - Install Segment's Node library.
+          - Define user events to track.
+trigger:
+  type: chat_form_submitted
+  flowNode:
+    switch:
+      key: ${formSubmission}
+      cases:
+        A:
+          do:
+            - actionId: bot_message
+              params:
+                person: lucca
+                messages:
+                  - text: Whoa, hold your horses! Before server creation, we need Segment.io
+                      integrated.
+            - actionId: replay_action
+              params:
+                actionName: quiz
+        B:
+          do:
+            - actionId: bot_message
+              params:
+                person: lucca
+                messages:
+                  - text: Spot on! Installing the Segment Node library is indeed the first step.
+            - actionId: bot_message
+              params:
+                person: lucca
+                messages:
+                  - text: /
+            - actionId: finish_step
+        C:
+          do:
+            - actionId: bot_message
+              params:
+                person: lucca
+                messages:
+                  - text: Not quite! Prioritize installation before event definition.
+            - actionId: replay_action
+              params:
+                actionName: quiz
